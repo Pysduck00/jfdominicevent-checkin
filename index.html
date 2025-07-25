@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Check-in</title>
+</head>
+<body>
+    <h1>Event Check-in</h1>
+    <p id="message">Checking in...</p>
+    <button id="checkinButton" onclick="checkin()">Check-in</button>
+
+    <script>
+        // 从 URL 中获取邮件地址参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        
+        // 显示参加者的电子邮件
+        document.getElementById('message').innerHTML = `Welcome, ${name}! Click below to check in.`;
+        
+        function checkin() {
+            // 向服务器发送签到请求（你可以自定义这一部分）
+            alert(`${email} has checked in!`);
+            document.getElementById('message').innerHTML = 'Check-in successful!';
+            document.getElementById('checkinButton').disabled = true;
+        }
+    </script>
+</body>
+</html>
